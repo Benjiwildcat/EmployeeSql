@@ -1,18 +1,7 @@
 import mysql from "mysql2"
 import inquirer from "inquirer";
+import pool from "./employeePool.mjs"
 
-const pool = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "root",
-    database: "test",
-    waitForConnections: true,
-    connectionLimit: 10,
-    maxIdle: 10,
-    idleTimeout: 60000,
-    queueLimit: 0,
-
-});
 
 const promisePool = pool.promise();
 

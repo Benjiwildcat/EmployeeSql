@@ -2,15 +2,25 @@ import mysql from "mysql2"
 import inquirer from "inquirer";
 
 
-const pool = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "root",
-    database: "test",
-    waitForConnections: true,
-    connectionLimit: 10,
-    maxIdle: 10,
-    idleTimeout: 60000,
-    queueLimit: 0,
-
+router.get('/roles', async (req, res) => {
+    const userData = await role.findAll().catch((err) => {
+        res.json(err);
+    });
+    res.json(userData);
 });
+
+router.get('/employee', async (req, res) => {
+    const userData = await employee.findAll().catch((err) => {
+        res.json(err);
+    });
+    res.json(userData);
+});
+
+router.get('/', async (req, res) => {
+    const userData = await User.findAll().catch((err) => {
+        res.json(err);
+    });
+    res.json(userData);
+});
+
+module.exports
