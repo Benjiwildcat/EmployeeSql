@@ -1,10 +1,11 @@
 import mysql from "mysql2"
 import inquirer from "inquirer";
 import { boot } from "./index.mjs";
+import emPool from "./employeePool.mjs";
 
 
 // Function to see all the roles //
-export async function viewAllRoles() {
+export async function viewAllEmployeeRoles() {
     const [rows] = await emPool.query(
         "SELECT roles.id, roles.title, department.name AS department, roles.salary FROM roles JOIN department on roles.department_id = department.id"
     );
@@ -13,7 +14,7 @@ export async function viewAllRoles() {
 }
 
 // Function to add a new role //
-export async function addRole() {
+export async function addNewRole() {
     try {
         const [getDepartments] = await emPool.query(
             "SELECT * FROM department"
@@ -58,7 +59,7 @@ export async function addRole() {
     }
 }
 
-export async function updateEmployeeRole() {
+export async function updateRole() {
     const [rolesArray, employeeArray] = await Promise.all([
         emPool.query("SELECT id, title FROM roles"),
         emPool.query(

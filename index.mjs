@@ -3,6 +3,7 @@ import inquirer from "inquirer";
 import pool from "./employeePool.mjs"
 import { viewAllDepartments, addDepartment } from "./department.mjs";
 import { viewAllEmployees, addEmployee } from "./employee.mjs";
+import { viewAllEmployeeRoles, addNewRole, updateRole } from "./roles.mjs"
 
 export async function boot() {
     const questions = await inquirer.prompt({
