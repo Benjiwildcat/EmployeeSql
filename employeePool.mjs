@@ -4,7 +4,7 @@ const pool = mysql.createPool({
     host: "localhost",
     user: "root",
     password: "root",
-    database: "test",
+    database: "company_db",
     waitForConnections: true,
     connectionLimit: 10,
     maxIdle: 10,
@@ -12,6 +12,6 @@ const pool = mysql.createPool({
     queueLimit: 0,
 
 })
+const emPool = pool.promise()
 
-
-export default pool
+export default emPool
